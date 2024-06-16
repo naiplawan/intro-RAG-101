@@ -1,7 +1,7 @@
-PDF RAG Assistant
+# PDF RAG Assistant
 This repository contains a Streamlit-based application designed to assist users in retrieving and generating answers from PDF documents using advanced AI models. The application leverages OpenAI's GPT-4 for generating textual answers and provides options for generating visual representations using various image models like DALL-E and Together AI's models.
 
-Features
+## Features
 Textual Answer Generation: Utilizes OpenAI's GPT-4 to generate concise answers based on user queries and retrieved passages from PDF documents.
 Image Generation: Offers options to generate visual representations of the answers using:
 OpenAI DALL-E
