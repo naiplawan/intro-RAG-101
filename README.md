@@ -22,12 +22,12 @@ SentenceTransformers: For embedding PDF documents.
 PyMuPDF (fitz): For extracting text from PDF documents.
 
 ## Installation
-###Clone the repository:
+Clone the repository:
 ```
 git clone https://github.com/your-username/pdf-rag-assistant.git
 cd pdf-rag-assistant
 ```
-### Create and activate 
+Create and activate 
 ```
 a virtual environment:
 ```
@@ -38,7 +38,7 @@ python -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 ```
 
-###Install the required packages:
+Install the required packages:
 ```
 pip install -r requirements.txt
 ```
@@ -60,16 +60,16 @@ Run the Streamlit application:
 ```
 streamlit run app.py
 ```
-##Interact with the application:
+## Interact with the application:
 Enter your query in the text input field.
 Select the desired image model from the dropdown.
 Click the "Get Answer" button to retrieve passages, generate answers, and create visual representations.
 
-##Contributing
+## Contributing
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
 
-###License
+### License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-##Acknowledgments
+## Acknowledgments
 Special thanks to the developers of Streamlit, OpenAI, Together AI, Qdrant, SentenceTransformers, and PyMuPDF for providing the tools and libraries used in this project.
