@@ -7,7 +7,6 @@ from utilities.constants import (
     TOGETHERAI_API_IMAGE_ENDPOINT,
 )
 
-print(TOGETHERAI_API_IMAGE_ENDPOINT)
 
 def together_api_call(prompt, temperature=0.2, max_tokens=4000):
     headers = {
@@ -39,7 +38,10 @@ def together_api_call(prompt, temperature=0.2, max_tokens=4000):
 def openai_api_call(messages, temperature=0.5):
     client = OpenAI()
     completion = client.chat.completions.create(
-        model="gpt-4o", messages=messages, temperature=temperature
+
+        model="gpt-4o",
+        messages=messages,
+        temperature=temperature
     )
     return completion.choices[0].message.content
 
@@ -69,14 +71,27 @@ def generate_image_together(prompt, model_string):
         "steps": 20,
         "n": 1,
         "height": 1024,
-        "width": 1024
+        "width": 1024,
     }
 
     try:
-        req = requests.post(TOGETHERAI_API_IMAGE_ENDPOINT, headers=headers, json=payload)
+        req = requests.post(
+            TOGETHERAI_API_IMAGE_ENDPOINT, headers=headers, json=payload
+        )
         req.raise_for_status()
         res = req.json()
         return res["data"][0]["url"]
     except requests.exceptions.RequestException as error:
         print(f"Error generating image with Together AI: {error}")
         return None
+
+
+def generate_answer(context, query):
+    messages = [
+        {
+            "role": "user",
+            "content": f"Answer the following question concisely based on the provided context in markdown format:\n\nContext:\n{context}\n\nQuestion: {query}\n\nAnswer:",
+        }
+    ]
+    result = openai_api_call(messages)
+    return result

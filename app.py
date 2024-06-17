@@ -1,18 +1,7 @@
 import os
 import streamlit as st
-from utilities.llm import openai_api_call, generate_image_dalle, generate_image_together
+from utilities.llm import openai_api_call, generate_image_dalle, generate_answer, generate_image_together
 from utilities.data_retrieval import retrieve_relevant_passages
-
-
-def generate_answer(context, query):
-    messages = [
-        {
-            "role": "user",
-            "content": f"Answer the following question concisely based on the provided context in markdown format:\n\nContext:\n{context}\n\nQuestion: {query}\n\nAnswer:",
-        }
-    ]
-    result = openai_api_call(messages)
-    return result
 
 
 st.title("PDF RAG Assistant")
